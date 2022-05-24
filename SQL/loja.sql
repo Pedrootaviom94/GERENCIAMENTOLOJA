@@ -82,7 +82,7 @@ CREATE TABLE `pedido` (
 
 CREATE TABLE `pedidoproduto` (
   `IdPedidoProduto` int(11) NOT NULL,
-  `idPedido` int(11) NOT NULL,
+  `IdPedido` int(11) NOT NULL,
   `IdProduto` int(11) NOT NULL,
   `Quantidade` INT (11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -254,7 +254,7 @@ ALTER TABLE `pedido`
 -- Limitadores para a tabela `pedidoproduto`
 --
 ALTER TABLE `pedidoproduto`
-  ADD CONSTRAINT `pedidoproduto_ibfk_1` FOREIGN KEY (`idPedido`) REFERENCES `pedido` (`IdPedido`),
+  ADD CONSTRAINT `pedidoproduto_ibfk_1` FOREIGN KEY (`IdPedido`) REFERENCES `pedido` (`IdPedido`),
   ADD CONSTRAINT `pedidoproduto_ibfk_2` FOREIGN KEY (`IdProduto`) REFERENCES `produto` (`IdProduto`);
 
 --
