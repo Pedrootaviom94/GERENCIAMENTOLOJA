@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
-using GERENCIAMENTOLOJA.MODELS;
+using GERENCIAMENTOLOJA.Domains;
 using MySqlConnector;
- namespace GERENCIAMENTOLOJA.Controllers{
+ namespace GERENCIAMENTOLOJA.Domains.Controllers{
 
  public class UsuarioController : Controller{
        private readonly ILogger<UsuarioController> _logger;

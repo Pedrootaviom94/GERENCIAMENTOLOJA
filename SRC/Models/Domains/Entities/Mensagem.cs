@@ -7,14 +7,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GERENCIAMENTOLOJA {
+namespace GERENCIAMENTOLOJA.Domains {
     
-public class Pedido { 
+public class Mensagens { 
 
-     
+     public int IdMensagem {get;set;}
      public int IdPedido{get;set;}
      public int IdUsuario {get;set;}
-     public DateTime DataPedido  {get;set;}
+     public string Conteudo {get;set;}
+     public DateTime DataEnvio  {get;set;}
 
 }
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using MySqlConnector;
 
-namespace GERENCIAMENTOLOJA.MODELS{
+namespace GERENCIAMENTOLOJA.Domains{
 
 public class UsuarioRepository{
 

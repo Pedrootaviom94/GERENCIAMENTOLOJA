@@ -1,7 +1,0 @@
-C:\Users\pedro\Documents\GITHUB\gerenciamentoloja\obj\Debug\netcoreapp3.1\GERENCIAMENTOLOJA.csprojAssemblyReference.cache
-C:\Users\pedro\Documents\GITHUB\gerenciamentoloja\obj\Debug\netcoreapp3.1\GERENCIAMENTOLOJA.AssemblyInfoInputs.cache
-C:\Users\pedro\Documents\GITHUB\gerenciamentoloja\obj\Debug\netcoreapp3.1\GERENCIAMENTOLOJA.AssemblyInfo.cs
-C:\Users\pedro\Documents\GITHUB\gerenciamentoloja\obj\Debug\netcoreapp3.1\GERENCIAMENTOLOJA.csproj.CoreCompileInputs.cache
-C:\Users\pedro\Documents\GITHUB\gerenciamentoloja\obj\Debug\netcoreapp3.1\GERENCIAMENTOLOJA.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\pedro\Documents\GITHUB\gerenciamentoloja\obj\Debug\netcoreapp3.1\GERENCIAMENTOLOJA.RazorAssemblyInfo.cache
-C:\Users\pedro\Documents\GITHUB\gerenciamentoloja\obj\Debug\netcoreapp3.1\GERENCIAMENTOLOJA.RazorAssemblyInfo.cs

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GERENCIAMENTOLOJA {
+namespace GERENCIAMENTOLOJA.Domains {
 public class Loja { 
 
      public int IdLoja {get;set;}  
