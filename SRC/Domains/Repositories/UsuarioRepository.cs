@@ -13,7 +13,7 @@ public void TestarConexao (){
 
     Conexao.Open();
 
-    Console.Writeline("Banco de dados funcionando");
+    Console.WriteLine("Banco de dados funcionando");
 
     Conexao.Close();
 }
