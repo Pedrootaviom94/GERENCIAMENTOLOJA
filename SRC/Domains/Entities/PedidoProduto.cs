@@ -7,13 +7,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GERENCIAMENTOLOJA.Domains {
-public class Loja { 
+namespace GERENCIAMENTOLOJA.Domains.Entities{
+    
+public class PedidoProduto { 
 
-     public int IdLoja {get;set;}  
-     public string IdUsuario {get;set;}
-     public string Nome {get;set;}
-     public string Descricao {get;set;}
+     
+     public int IdPedidoProduto{get;set;}
+     public int IdPedido {get;set;}
+     public int  IdProduto  {get;set;}
+     public int Quantidade {get;set;}
 
 }
 

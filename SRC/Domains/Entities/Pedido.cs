@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GERENCIAMENTOLOJA.Domains {
+namespace GERENCIAMENTOLOJA.Domains.Entities {
     
 public class Pedido { 
 

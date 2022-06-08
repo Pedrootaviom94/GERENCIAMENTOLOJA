@@ -7,15 +7,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GERENCIAMENTOLOJA.Domains {
-public class Usuario { 
+namespace GERENCIAMENTOLOJA.Domains.Entities {
+public class Comentario { 
 
+     public int IdComentario {get;set;}
+     public int IdProduto {get;set;}
      public int IdUsuario {get;set;}
-     public string Nome {get;set;}
-     public string Email {get;set;}
-     public string Senha {get;set;}
-     public int Contato {get;set;}
-     public int TipoUsuario  {get;set;}
+     public string TextoComentario {get;set;}
+     public DateTime DataCriacao {get;set;}
+    
 
 }
 
