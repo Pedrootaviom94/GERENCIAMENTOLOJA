@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `comentatio`
 --
 
-CREATE TABLE `comentatio` (
+CREATE TABLE `comentario` (
   `IdComentario` int(11) NOT NULL,
   `IdProduto` int(11) NOT NULL,
   `IdUsuario` int(11) NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `mensagem` (
   `IdMensagem` int(11) NOT NULL,
   `IdPedido` int(11) NOT NULL,
   `IdUsuario` int(11) NOT NULL,
-  `Mensagem` varchar(250) NOT NULL,
+  `Conteudo` varchar(250) NOT NULL,
   `DataEnvio` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -126,7 +126,7 @@ CREATE TABLE `usuario` (
 --
 -- Índices para tabela `comentatio`
 --
-ALTER TABLE `comentatio`
+ALTER TABLE `comentario`
   ADD PRIMARY KEY (`IdComentario`),
   ADD KEY `IdProduto` (`IdProduto`),
   ADD KEY `IdUsuario` (`IdUsuario`);

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GERENCIAMENTOLOJA.Domains.Repositories;
 
 namespace GERENCIAMENTOLOJA
 {
@@ -23,6 +24,11 @@ namespace GERENCIAMENTOLOJA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            string conexaostring = "Database = GerenciamentoLojas; Data source = localhost; User Id=root";
+        
+            services.AddSingleton(new DataBaseConfig (conexaostring));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,149 @@
+using System;
+using System.Collections.Generic;
+using MySqlConnector;
+
+namespace GERENCIAMENTOLOJA.Domains.Entities{
+
+public class UsuarioRepository{
+
+protected const string DadosConexao = "Database = GerenciamentoLojas; Data source = localhost; User Id=root";
+
+public void TestarConexao (){
+    MySqlConnection Conexao = new MySqlConnection (DadosConexao);
+
+    Conexao.Open();
+
+    Console.WriteLine("Banco de dados funcionando");
+
+    Conexao.Close();
+}
+
+public Usuario ValidarLogin (Usuario usuario){
+   //1 abrir conexao 
+   MySqlConnection Conexao = new MySqlConnection (DadosConexao);
+
+   Conexao.Open();
+
+   //criar u Usuario vazio 
+   Usuario usuarioEncontrado = null;
+
+   string Query = "SELECT * FROM Usuario Where Nome = @Nome and Senha = @Senha";
+   MySqlCommand Comando = new MySqlCommand (Query, Conexao);
+
+   //tratando SQL INJECTION 
+   Comando.Parameters.AddWithValue("@Nome", usuario.Nome);
+   Comando.Parameters.AddWithValue("Senha", usuario.Senha);
+
+   MySqlDataReader Reader = Comando.ExecuteReader();
+
+   //usar ESCLAMACAO (!)
+
+   if(Reader.Read())
+   {
+       usuarioEncontrado = new Usuario();
+
+       usuarioEncontrado.Id = Reader.GetInt32("Id");
+     if (!Reader.IsDBnull(Reader.GetOrdinal("Nome")))
+     usuarioEncontrado.Nome = Reader.GetString("Nome");
+
+     if (!Reader.IsDBnull(Reader.GetOrdinal("Senha")))
+      usuarioEncontrado.Senha = Reader.GetString("Senha");
+
+   }
+         //fechar conexao 
+          Conexao.Close();
+
+          //retonar se nao localizar o usuarioEncontrado 
+           return usuarioEncontrado;
+}
+
+         // metodos para o crud 
+         // inserir, alterar, listar e excluir usuarios no banco de dados
+
+           public void inserir(Usuario novoUser)
+         {
+            //1 abrir a conexao 
+            MySqlConnection Conexao = new MySqlConnection(DadosConexao);
+            Conexao.Open();
+            //2 preparar a query 
+            string Query = "INSERT INTO USUARIO  (Nome,Email,Senha,Contato,TipoUsuario) VALUES (@Nome,@Email,@Senha,@Contato,@TipoUsuario)";
+            //3 preparar o comando
+            MySqlCommand Comando = new MySqlCommand(Query, Conexao);
+
+            //4 tratar do SQL INJECTION
+            Comando.Parameters.AddWithValue("@Nome", novoUser.Nome);
+            Comando.Parameters.AddWithValue("@Email", novoUser.Email);
+            Comando.Parameters.AddWithValue("@Senha", novoUser.Senha);
+            Comando.Parameters.AddWithValue("@Contato", novoUser.Contato);
+            Comando.Parameters.AddWithValue("@TipoUsuario", novoUser.TipoUsuario);
+            // Comando.Parameters.AddWithValue("@Id",user.Id);
+
+            //5 executar no banco
+            Comando.ExecuteNonQuery();
+            //6 fechar a conexao
+            Conexao.Close();
+         }
+
+         public void atualizar(Usuario user)
+         {
+            //user.Id //eh assim que obtemos as informaçoes da tela do computador
+
+
+            //1 abrir a conexao 
+            MySqlConnection Conexao = new MySqlConnection(DadosConexao);
+            Conexao.Open();
+
+            //2 preparar a query 
+            string Query = "UPDATE Usuario SET Nome=@Nome, Email=@Email, Senha=@Senha, Contato=@Contato where Id = @Id";
+           
+            //3 preparar o comando
+            MySqlCommand Comando = new MySqlCommand(Query, Conexao);
+
+            //4 tratar do SQL INJECTION
+            Comando.Parameters.AddWithValue("@Nome", user.Nome);
+            Comando.Parameters.AddWithValue("@Email", user.Email);
+            Comando.Parameters.AddWithValue("@Senha", user.Senha);
+            Comando.Parameters.AddWithValue("@Contato", user.Contato);
+            Comando.Parameters.AddWithValue("@TipoUsuario", user.TipoUsuario);
+            Comando.Parameters.AddWithValue("@Id", user.Id);
+           
+            //5 executar no banco
+            Comando.ExecuteNonQuery();
+            
+            //6 fechar a conexao
+            Conexao.Close();
+
+         }
+
+          public void remover(Usuario user)
+         {
+            //1 abrir a conexão
+            MySqlConnection Conexao = new MySqlConnection(DadosConexao);
+            Conexao.Open();
+
+            //2 informando uma Query do objeto conexao
+            string Query = "DELETE FROM Usuario WHERE Id = @Id";
+            MySqlCommand comando = new MySqlCommand(Query, Conexao);
+
+            //3 trata de SQL INJECTION 
+            comando.Parameters.AddWithValue("@Id", user.Id);
+            //substituir o valor informado na variavel @id
+            //validar internamente, se o que esta sendo passado nao e mal intesionado (Sql injection)
+
+            //4 executar no banco de dados 
+            comando.ExecuteNonQuery();
+
+
+            //5 fechar a conexão
+            Conexao.Close();
+
+
+        }
+
+
+}
+
+
+   
+}
+
